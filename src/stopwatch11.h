@@ -5,6 +5,9 @@
 	using namespace std::chrono;
 	class TimerBaseChrono {
 	public:
+        // tick type
+        using tick_t = system_clock::duration::rep;
+
 		//	clears the timer
 		TimerBaseChrono() : m_start(system_clock::time_point::min()) { }
 
@@ -21,6 +24,16 @@
 		//	start the timer
 		void Start()            { m_start = std::chrono::system_clock::now(); }
 
+        // get elapsed time in ticks
+        tick_t GetTicks() {
+            if (IsStarted()) {
+                auto now = system_clock::now();
+                auto dt  = (now - m_start);
+                return dt.count();
+            }
+            return 0;
+        }
+
 		//	get the number of milliseconds since the timer was started
 		unsigned long GetMs() {
 			if (IsStarted()) {
@@ -30,6 +43,9 @@
 			}
 			return 0;
 		}
+        static unsigned GetMs(tick_t dt) {
+            return (unsigned)(duration_cast<milliseconds>(system_clock::duration(dt)).count());
+        }
 	private:
 		std::chrono::system_clock::time_point m_start;
 	}; 
