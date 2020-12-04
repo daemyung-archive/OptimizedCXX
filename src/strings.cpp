@@ -50,6 +50,7 @@ std::string remove_ctrl_reserve(std::string s) {
     }
     return result;
 }
+
 std::string remove_ctrl_reserve_it(std::string s) {
     std::string result;
     result.reserve(s.length());
@@ -369,7 +370,7 @@ int test_strings(int test_no, unsigned long multiplier) {
 			for (counter_t i = 0; i < iterations; ++i)
 				remove_ctrl_ref_result(result, s);
         }
-		{   Stopwatch sw("remove_ctrl_ref_it()");
+		{   Stopwatch sw("remove_ctrl_ref_result_it()");
 			for (counter_t i = 0; i < iterations; ++i)
 				remove_ctrl_ref_result_it(result, s);
         }
