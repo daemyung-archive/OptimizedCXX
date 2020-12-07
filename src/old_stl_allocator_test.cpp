@@ -1,6 +1,7 @@
 # include "simple_allocator.h"
 # include "old_block_allocator.h"
 # include "stopwatch03.h"
+# include "test_driver.h"
 # include <string>
 # include <iostream>
 
@@ -104,4 +105,9 @@ int test_fixed_block_allocator(int test_no, unsigned long multiplier)
         break;
 	}
     return rc ? 1 : 0;
+}
+
+int main(int argc, char** argv) {
+    test_driver(test_fixed_block_allocator, argc, argv);
+    return 0;
 }

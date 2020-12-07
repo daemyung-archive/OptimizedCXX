@@ -27,3 +27,13 @@ add_library(common
 #
 add_executable(strings src/strings.h src/strings.cpp)
 target_link_libraries(strings common)
+
+#
+# stl allocator
+#
+add_executable(stl_allocator
+    src/simple_allocator.h
+    src/old_block_allocator.h
+    src/old_stl_block_allocator.cpp
+    src/old_stl_allocator_test.cpp)
+target_link_libraries(stl_allocator common)
