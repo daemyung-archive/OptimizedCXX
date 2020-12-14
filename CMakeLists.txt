@@ -37,3 +37,9 @@ add_executable(stl_allocator
     src/old_stl_block_allocator.cpp
     src/old_stl_allocator_test.cpp)
 target_link_libraries(stl_allocator common)
+
+#
+# computation
+#
+add_executable(computation src/Statements.cpp src/computation.cpp)
+target_link_libraries(computation common)
