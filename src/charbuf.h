@@ -128,4 +128,16 @@ template <unsigned N, typename T>
 		return N;
 	}
 
+    namespace std
+    {
+        template <unsigned N, typename T>
+        struct hash<charbuf<N, T>>
+        {
+	        size_t operator()(const charbuf<N, T> &value) const
+            {
+                return static_cast<size_t>(value);
+            }
+        };
+    }
+
 # endif

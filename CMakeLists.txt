@@ -43,3 +43,20 @@ target_link_libraries(stl_allocator common)
 #
 add_executable(computation src/Statements.cpp src/computation.cpp)
 target_link_libraries(computation common)
+
+#
+# stl
+#
+add_executable(stl
+    src/charbuf.h
+    src/search_maps.cpp
+    src/search_algorithms.cpp
+    src/search_hash.cpp
+    src/vector.cpp
+    src/deque.cpp
+    src/list.cpp
+    src/forward_list.cpp
+    src/map.cpp
+    src/unordered_map.cpp
+    src/stl.cpp)
+target_link_libraries(stl common)
