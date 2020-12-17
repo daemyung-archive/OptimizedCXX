@@ -49,6 +49,7 @@ target_link_libraries(computation common)
 #
 add_executable(stl
     src/charbuf.h
+    src/kvstruct.h
     src/search_maps.cpp
     src/search_algorithms.cpp
     src/search_hash.cpp
