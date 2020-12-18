@@ -61,3 +61,9 @@ add_executable(stl
     src/unordered_map.cpp
     src/stl.cpp)
 target_link_libraries(stl common)
+
+#
+# file reader
+#
+add_executable(file_reader src/file_reader.cpp)
+target_link_libraries(file_reader common)
