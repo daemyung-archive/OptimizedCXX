@@ -67,3 +67,9 @@ target_link_libraries(stl common)
 #
 add_executable(file_reader src/file_reader.cpp)
 target_link_libraries(file_reader common)
+
+#
+# concurrency
+#
+add_executable(concurrency src/concurrency.cpp)
+target_link_libraries(concurrency common)
