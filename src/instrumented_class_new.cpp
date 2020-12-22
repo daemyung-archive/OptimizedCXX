@@ -85,11 +85,11 @@ int test_class_new(int testno, unsigned long) {
 				std::unique_ptr<MyOwnAllocator> pmoa(new MyOwnAllocator);
 				pmoa->AllocateBuffer();
 				std::unique_ptr<MyOwnAllocator[]> pamoa(new MyOwnAllocator[3]);
-				::new((void*)0) MyOwnAllocator;
+				// ::new((void*)0) MyOwnAllocator;
 			}
 		//	int a[100], b[100];
 		//	a = b; error: '=;' : left operand must be l-value
-			struct { int x, y; int z[100]; } c,d;
+			struct { int x, y; int z[100]; } c{},d{};
 			c = d;
 		}
 		break;

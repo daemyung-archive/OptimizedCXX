@@ -2,7 +2,7 @@
 # include <memory>
 # include "block_mgr.h"
 
-char list_arena[25000];
+char list_arena[50000];
 fixed_block_memory_manager<fixed_arena_controller> list_memory_manager(list_arena);
 
 template <typename T> class StatelessListAllocator {

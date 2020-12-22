@@ -7,7 +7,7 @@
 
 /////////////////// fixed_block_memory_manager /////////////////////
 
-template <class Arena> 
+template <class Arena>
 	template <int N>
         inline fixed_block_memory_manager<Arena>::fixed_block_memory_manager(char(&a)[N]) :
 	        arena_(a), free_ptr_(nullptr), block_size_(0) { /* empty */

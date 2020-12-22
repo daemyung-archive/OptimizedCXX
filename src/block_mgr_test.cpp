@@ -93,9 +93,10 @@ int test_fixed_block_memory_manager(int test_no, unsigned long multiplier) {
 			std::cout << "sizeof(MemMgrTester) = " << sizeof(MemMgrTester) << std::endl;
 			Stopwatch sw("allocate MemManTester: local new");
 			for (auto j = 10 * multiplier; j > 0; --j) {
-				MemMgrTester::mgr_.clear();
-				for (auto i = 0; i < 1000; ++i)
-					new MemMgrTester(i);
+				for (auto i = 0; i < 1000; ++i) {
+                    MemMgrTester::mgr_.clear();
+                    new MemMgrTester(i);
+				}
 			}
 		}
 		{

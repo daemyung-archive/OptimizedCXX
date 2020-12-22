@@ -1,7 +1,8 @@
 
 # include <string>
+# include <stdexcept>
 
-std::string insert_ctrl(std::string& s) {
+std::string insert_ctrl(const std::string& s) {
 	char buf[10000];
 	char* dest = buf;
 	char* end = buf + sizeof(buf) - 4;

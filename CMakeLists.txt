@@ -73,3 +73,18 @@ target_link_libraries(file_reader common)
 #
 add_executable(concurrency src/concurrency.cpp)
 target_link_libraries(concurrency common)
+
+#
+# allocation
+#
+add_executable(allocation
+    src/instrumented_class_new.cpp
+    src/list_allocator_test.cpp
+    src/string_allocator_test.cpp
+    src/block_mgr.h
+    src/block_mgr.inl
+    src/block_mgr_test.cpp
+    src/copy_elision_test.cpp
+    src/insert_ctrl.cpp
+    src/allocation.cpp)
+target_link_libraries(allocation common)
