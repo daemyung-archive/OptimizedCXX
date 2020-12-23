@@ -34,3 +34,6 @@
 # CLion files
 .idea/
 cmake-build-*/
+
+# macOS files
+.DS_Store
