@@ -21,7 +21,12 @@ std::streamoff stream_size(std::istream& f) {
 void stream_read_streambuf(std::istream& f, std::string& result) {
     std::stringstream s;
 	s << f.rdbuf();
+#ifdef __clang__
+	auto tmp = s.str();
+    std::swap(result, tmp);
+#else
     std::swap(result, s.str());
+#endif
 }
 
 std::string stream_read_streambuf_stringstream_noarg(std::istream& f) {
@@ -37,7 +42,12 @@ void stream_read_streambuf_stringstream(std::istream& f, std::string& result) {
     std::copy(std::istreambuf_iterator<char>(f.rdbuf()), 
               std::istreambuf_iterator<char>(), 
               std::ostreambuf_iterator<char>(s) );
+#ifdef __clang__
+    auto tmp = s.str();
+    std::swap(result, tmp);
+#else
     std::swap(result, s.str());
+#endif
 }
 
 void stream_read_streambuf_string(std::istream& f, std::string& result) {

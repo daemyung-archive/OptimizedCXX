@@ -9,6 +9,8 @@
     };
  
     int gettimeofday(struct timeval *tv, struct timezone *tz);
+#elif __APPLE__
+#   include <sys/time.h>
 # else // Linux
 #   include <sys.time.h>
 # endif

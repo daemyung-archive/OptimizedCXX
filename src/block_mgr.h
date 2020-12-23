@@ -2,6 +2,8 @@
 // fixed array memory manager to use with class-specific new
 ///////////////////////// fixed_block_memory_manager ////////////
 
+#include <cstddef>
+
 template <class Arena> struct fixed_block_memory_manager {
 	template <int N> 
 		fixed_block_memory_manager(char(&a)[N]);

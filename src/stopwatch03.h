@@ -39,7 +39,7 @@
 			return GetMs(GetTicks());
 		}
 		static unsigned GetMs(tick_t dt) {
-			return (unsigned long)((dt + (500/CLOCKS_PER_SEC)) * (1000 / CLOCKS_PER_SEC));
+			return (unsigned long)((dt + (500.0/CLOCKS_PER_SEC)) * (1000.0 / CLOCKS_PER_SEC));
 		}
 	private:
 		tick_t m_start;

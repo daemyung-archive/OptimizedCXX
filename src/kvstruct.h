@@ -3,6 +3,10 @@
 
 // simple, non-template key/value class with char[] keys, unsigned values
 
+#ifdef __APPLE__
+#define strcpy_s strcpy
+#endif
+
 struct kvstruct {
     char key[9];
     unsigned value; //  could be anything at all

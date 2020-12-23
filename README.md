@@ -7,6 +7,7 @@ This project just organizes Optimized C++ project with CMake. You can get more i
 + [Requirements](#requirements)
 + [Clone](#clone)
 + [Generate the project](#generate-the-project)
++ [Notice](#notice)
 
 ## Requirements
 + [Git](https://git-scm.com/downloads)
@@ -21,3 +22,6 @@ https://github.com/daemyung/OptimizedCXX.git
 ```
 cmake ..
 ```
+
+## Notice
+You can run examples on macOS but this project isn't support macOS officially.

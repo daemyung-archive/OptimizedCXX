@@ -43,13 +43,13 @@ public:
 	block_allocator(block_allocator const&) {/*empty*/}
 	template<typename U> explicit block_allocator(block_allocator<U,n> const&) {/*empty*/}
 
-	void construct(pointer p, const T& t) {
+	void construct(typename std_allocator_defs<T>::pointer p, const T& t) {
 		new(p) T(t); 
 	}
-	void destroy(pointer p) {
+	void destroy(typename std_allocator_defs<T>::pointer p) {
 		p->~T();
 	}
-	size_type max_size() const {
+    typename std_allocator_defs<T>::size_type max_size() const {
 		return block_o_memory::blocksize;
 	}
 	bool operator==(block_allocator const&) const {
@@ -59,12 +59,12 @@ public:
 		return !operator==(a);
 	}
 
-	pointer allocate(
-		size_type count,
+    typename std_allocator_defs<T>::pointer allocate(
+        typename std_allocator_defs<T>::size_type count,
 		typename std::allocator<void>::const_pointer = 0) {
-		return reinterpret_cast<pointer>(block_o_memory::allocate(count * sizeof(T)));
+		return reinterpret_cast<typename std_allocator_defs<T>::pointer>(block_o_memory::allocate(count * sizeof(T)));
 	}
-	void deallocate(pointer p, size_type) {
+	void deallocate(typename std_allocator_defs<T>::pointer p, typename std_allocator_defs<T>::size_type) {
 		block_o_memory::deallocate(p);
 	}
 };

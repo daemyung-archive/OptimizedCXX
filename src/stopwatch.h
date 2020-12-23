@@ -66,7 +66,7 @@
 
 template <typename T> class basic_stopwatch : public T {
 public:
-    typedef typename T BaseTimer;
+    using BaseTimer = T;
 	typedef typename T::tick_t tick_t;
 
     // create, optionally start timing an activity
@@ -164,11 +164,11 @@ template <typename T> inline typename basic_stopwatch<T>::tick_t basic_stopwatch
 //   show accumulated time, keep running, get/return lap time
 template <typename T> inline typename basic_stopwatch<T>::tick_t basic_stopwatch<T>::Show(char const* event_name) {
     if (IsStarted()) {
-        m_lap = GetTicks();
+        m_lap = BaseTimer::GetTicks();
         if (event_name && event_name[0]) {
             if (m_activity)
                 m_log << m_activity << ": ";
-            m_log << event_name << " at " << GetMs(m_lap) << "mS" << std::endl << std::flush;
+            m_log << event_name << " at " << BaseTimer::GetMs(m_lap) << "mS" << std::endl << std::flush;
         }
     }
     else {
@@ -197,11 +197,11 @@ template <typename T> inline typename basic_stopwatch<T>::tick_t basic_stopwatch
 //   stop a running stopwatch and print the accumulated time
 template <typename T> inline typename basic_stopwatch<T>::tick_t basic_stopwatch<T>::Stop(char const* event_name) {
     if (IsStarted()) {
-        m_lap = GetTicks();
+        m_lap = BaseTimer::GetTicks();
         if (event_name && event_name[0]) {
             if (m_activity)
                 m_log << m_activity << ": ";
-            m_log << event_name << " " << GetMs(m_lap) << "mS" << std::endl << std::flush;
+            m_log << event_name << " " << BaseTimer::GetMs(m_lap) << "mS" << std::endl << std::flush;
         }
     }
     BaseTimer::Clear();

@@ -19,8 +19,15 @@ add_library(common
            src/stopwatch11.cpp
            src/priority_thread.h
            src/test_driver.h
-           src/test_driver.cpp
-           src/Win32.cpp)
+           src/test_driver.cpp)
+
+if(MSVC)
+    target_sources(common
+        PRIVATE src/Win32.cpp)
+else()
+    target_sources(common
+        PRIVATE src/unix.cpp)
+endif()
 
 #
 # strings

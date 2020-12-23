@@ -262,6 +262,8 @@ int test_strings(int test_no, unsigned long multiplier) {
 #           else
                 std::cout << "Windows release build" << std::endl;
 #           endif
+#       elif __APPLE__
+            std::cout << "Apple build" << std::endl;
 #       else
             std::cout << "Linux build" << std::endl;
 #       endif   

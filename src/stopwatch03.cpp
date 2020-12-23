@@ -1,7 +1,16 @@
 # include "stopwatch03.h"
+
+#ifdef _WIN32
 # include <Windows.h>
 
 __declspec(dllimport) void __stdcall Sleep(unsigned long dwMilliseconds);
+#else
+#include <unistd.h>
+
+inline void Sleep(useconds_t usec) {
+    usleep(usec);
+}
+#endif
 
 int test_stopwatch03(int test_no, unsigned long)
 {

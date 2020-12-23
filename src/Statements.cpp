@@ -99,7 +99,9 @@ void test() { // test if I can call the constructor explicitly
 		FOO(int i):i_(i){}
 	};
 	FOO f(1);
+#ifndef __clang__
 	f.FOO::FOO(2);	//	explicit ctor call
+#endif
 	int j = f.i_;
 }
 
